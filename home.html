@@ -7,11 +7,109 @@
     <title>Home</title>
   </head>
   <body>
-
-    <section id="lista-autos">
-
+    <header>
+      <div class="logo-container">
+        <img src="" alt="Logo" />
+        <h2>Nombre</h2>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="home.html">Agregar Nuevo Auto</a></li>
+          <li><a href="home.html">Editar Auto</a></li>
+        </ul>
+      </nav>
+      <div id="perfil">
+        <p>Usuario</p>
+      </div>
+    </header>
+    <section class="home-container">
+      <article class="filtros-container">
+        <h3>Filtros</h3>
+        <ul>
+          <select name="marcas-select" id="marcas-select">
+            <option value="chevrolet">chevrolet</option>
+            <option value="chevrolet">Renault</option>
+            <option value="chevrolet">Tesla</option>
+            <option value="chevrolet">Suzuki</option>
+            <option value="chevrolet">Hyundai</option>
+          </select>
+        </ul>
+      </article>
+      <article class="right-container">
+        <div class="header-right">
+          <div class="search-container">
+            <form action="">
+              <label for="btn-buscar">Busca cualquier auto</label>
+              <div class="input-container">
+                <input type="text" placeholder="Buscar..." />
+                <button id="btn-buscar">Buscar</button>
+              </div>
+            </form>
+          </div>
+          <div class="icons-container">
+            <i class="fa-solid fa-trash-can icon-trash" style="color: white; font-size: 1.5em"></i>
+            <i class="fa-solid fa-pen-to-square icon-edit" style="font-size: 1.5em"></i>
+          </div>
+        </div>
+        <div class="tabla_autos-container">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Nombre del auto</th>
+                <th>Año</th>
+                <th>Monto</th>
+                <th>Usado</th>
+                <th>Disponible</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="lista-autos"></tbody>
+          </table>
+        </div>
+      
+      </article>
     </section>
+    <!-- <section id="lista-autos">
+
+    </section> -->
     <div id="lista-error"></div>
     <script type="module" src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/e68b49459b.js" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<!-- <article class="header-home">
+        <div class="filtros">
+          <ul>
+            <li>filtro</li>
+          </ul>
+        </div>
+        <div class="search-container">
+          <form action="">
+            <label for="btn-buscar">Busca cualquier auto</label>
+            <div>
+              <input type="text" placeholder="Buscar..." />
+              <button id="btn-buscar">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </article>
+      <article class="container-lista_autos">
+        <div class="header-lista_autos"></div>
+        <div id="lista-autos"></div>
+      </article> -->
+
+
+        <!-- <div class="lista_autos-container">
+          <ul class="header-lista_autos">
+            <li>Nombre del auto</li>
+            <li>Año</li>
+            <li>Monto</li>
+            <li>Usado</li>
+            <li>Disponible</li>
+            <li></li>
+          </ul>
+          <ul id="lista-autos"></ul>
+        </div> -->

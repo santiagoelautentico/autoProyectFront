@@ -78,7 +78,7 @@ export default class Auto {
 
     <tr id=${this.id} class="item-auto">
       <td class=${this.marca}></td>
-      <td>${this.modelo}</td>
+      <td data-id=${this.id} id="nombre">${this.modelo}</td>
       <td>${this.año}</td>
       <td>${this.precio}</td>
       <td>${this.usado ? "Nuevo" : "Usado"}</td>

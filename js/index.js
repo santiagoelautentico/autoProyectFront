@@ -29,13 +29,21 @@ const mostrarListaDeAutos = (data) => {
     .join("");
   imprimir("lista-autos", listadoDeAutos);
 
-  document.querySelectorAll(".item-auto").forEach((itemListado) => {
-    console.log(itemListado, "hola");
-    itemListado.addEventListener("click", () => {
-      console.log(itemListado.id, "hola");
-      document.location.replace(`detalle-auto.html?id=${itemListado.id}`);
-    });
-  });
+  // document.querySelectorAll(".item-auto").forEach((itemListado) => {
+  //   console.log(itemListado, "hola");
+  //   itemListado.addEventListener("click", () => {
+  //     console.log(itemListado.id, "hola");
+  //     document.location.replace(`detalle-auto.html?id=${itemListado.id}`);
+  //   });
+  // });
+
+  const idClickAuto = document.getElementById("nombre");
+
+  idClickAuto.addEventListener("click", () => {
+    console.log(idClickAuto.dataset.id, "holaaa");
+    const idAuto = idClickAuto.dataset.id
+    document.location.replace(`detalle-auto.html?id=${idAuto}`)
+  })
 
   const btnEliminar = document.getElementById("btn-eliminar");
 
@@ -43,9 +51,8 @@ const mostrarListaDeAutos = (data) => {
     console.log(btnEliminar.dataset.id);
     const idAuto = btnEliminar.dataset.id;
     RequestsAPI.borrarAuto(idAuto)
-      .then(mostrarListaDeAutos)
+      .then(()=> window.location.reload() )
       .catch(mostrarError);
-    window.location.reload();
   });
 };
 const mostrarError = (error) => {

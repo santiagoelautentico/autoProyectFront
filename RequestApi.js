@@ -23,7 +23,7 @@ const manejarErrores = (error = new Error("Error desconocido")) => {
 };
 
 export class RequestsAPI {
-  static urlBaseBackend = "http://localhost:3001";
+  static urlBaseBackend = "https://autoproyectbackend.onrender.com";
 
   static getAutos(opciones = {}) {
     return fetch(obtenerUrl("autos"), { headers })

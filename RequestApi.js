@@ -30,6 +30,22 @@ export class RequestsAPI {
       .then(procesarRespuesta)
       .catch(manejarErrores);
   }
+
+  static getAuto(idAuto) {
+    return fetch(obtenerUrl(`auto/${idAuto}`), { headers })
+      .then(procesarRespuesta, console.log("error"))
+      .catch(manejarErrores);
+  }
+
+  static borrarAuto(idAuto) {
+    return fetch(obtenerUrl(`auto/${idAuto}`), {
+      method: "DELETE",
+      headers,
+    })
+      .then(procesarRespuesta)
+      .catch(manejarErrores);
+  }
+
   static login(email, password) {
     const body = JSON.stringify({ email, password });
 

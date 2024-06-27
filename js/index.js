@@ -28,6 +28,25 @@ const mostrarListaDeAutos = (data) => {
     )
     .join("");
   imprimir("lista-autos", listadoDeAutos);
+
+  document.querySelectorAll(".item-auto").forEach((itemListado) => {
+    console.log(itemListado, "hola");
+    itemListado.addEventListener("click", () => {
+      console.log(itemListado.id, "hola");
+      document.location.replace(`detalle-auto.html?id=${itemListado.id}`);
+    });
+  });
+
+  const btnEliminar = document.getElementById("btn-eliminar");
+
+  btnEliminar.addEventListener("click", () => {
+    console.log(btnEliminar.dataset.id);
+    const idAuto = btnEliminar.dataset.id;
+    RequestsAPI.borrarAuto(idAuto)
+      .then(mostrarListaDeAutos)
+      .catch(mostrarError);
+    window.location.reload();
+  });
 };
 const mostrarError = (error) => {
   imprimir("lista-error", error);

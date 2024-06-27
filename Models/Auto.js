@@ -84,11 +84,23 @@ export default class Auto {
       <td>${this.usado ? "Nuevo" : "Usado"}</td>
       <td>${this.kilometros}</td>
       <td class="icon_auto_container">
-        <i class="fa-solid fa-trash-can icon-trash-auto" style="color: white; font-size: 1em"></i>
+        <i class="fa-solid fa-trash-can icon-trash-auto" data-id=${this.id} id="btn-eliminar" style="color: white; font-size: 1em"></i>
         <i class="fa-solid fa-pen-to-square icon-edit-auto" style="font-size: 1em"></i>
       </td>
     </tr>
     
+    `
+  }
+
+  mostrarDetalle() {
+    return /*html*/ `
+      <div class='headerDetalle-container' id=${this.id}>
+        <p>Kilometros: ${this.kilometros}</p>
+        <div>
+          <h2>${this.modelo}</h2>
+          <h3>${this.marca}</h3>
+        </div>
+      </div>
     `
   }
 

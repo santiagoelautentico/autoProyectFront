@@ -25,7 +25,6 @@ const mostrarDetalle = (data) => {
     data.usado,
     data.puertas,
     data.kilometros,
-    data.kilometros,
     data.numeroDePlazas,
     data.papelesAlDia,
     data.combustible,

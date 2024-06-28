@@ -46,6 +46,12 @@ export class RequestsAPI {
       .catch(manejarErrores);
   }
 
+  static postAuto(body) {
+    return fetch(obtenerUrl("auto"), { method: "POST", body, headers })
+      .then(procesarRespuesta)
+      .catch(manejarErrores);
+  }
+
   static login(email, password) {
     const body = JSON.stringify({ email, password });
 

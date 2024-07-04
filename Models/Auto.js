@@ -46,7 +46,7 @@ export default class Auto {
     motor = "",
     usado = false,
     puertas = 0,
-    kilometros = 0,
+    Kilometros = 0,
     numeroDePlazas = 0,
     papelesAlDia = false,
     tipoDeCaja = "",
@@ -64,7 +64,7 @@ export default class Auto {
     this.motor = motor;
     this.usado = usado;
     this.puertas = puertas;
-    this.kilometros = kilometros;
+    this.Kilometros = Kilometros;
     this.numeroDePlazas = numeroDePlazas;
     this.papelesAlDia = papelesAlDia;
     this.tipoDeCaja = tipoDeCaja;
@@ -73,24 +73,40 @@ export default class Auto {
   }
 
   mostrarEnLista() {
-    // return /*html*/
     return /*html*/ `
-
-    <tr id=${this.id} class="item-auto">
-      <td class=${this.marca}></td>
-      <td data-id=${this.id} id="nombre">${this.modelo}</td>
-      <td>${this.año}</td>
-      <td>${this.precio}</td>
-      <td>${this.usado ? "Nuevo" : "Usado"}</td>
-      <td>${this.kilometros}</td>
-      <td class="icon_auto_container">
-        <i class="fa-solid fa-trash-can icon-trash-auto" data-id=${this.id} id="btn-eliminar" style="color: white; font-size: 1em"></i>
-        <i class="fa-solid fa-pen-to-square icon-edit-auto" style="font-size: 1em"></i>
-      </td>
-    </tr>
-    
-    `
+      <div class="auto" id=${this.id}>
+        <div class=${this.marca}></div>
+        <h3>${this.modelo}</h3>
+        <h3>U$D ${this.precio}</h3>
+        <h3>${this.año}</h3>
+        <h3>${this.usado ? "Nuevo" : "Usado"}</h3>
+        <h3>${this.Kilometros} Km</h3>
+        <button class="btn-editar btn-auto" data-id=${this.id}>Editar</button>
+        <button class="btn-eliminar btn-auto" data-id=${this.id}>Eliminar</button>
+      </div>
+    `;
   }
+  // mostrarEnLista() {
+  //   // return /*html*/
+  //   return /*html*/ `
+
+  //   <tr id=${this.id} class="item-auto">
+  //     <td class=${this.marca}></td>
+  //     <td data-id=${this.id} id="nombre" class="tabla-contenido">${this.modelo}</td>
+  //     <td class="tabla-contenido">${this.año}</td>
+  //     <td class="tabla-contenido">${this.precio}</td>
+  //     <td class="tabla-contenido">${this.usado ? "Nuevo" : "Usado"}</td>
+  //     <td class="tabla-contenido">${this.Kilometros}</td>
+  //     <td class="icon_auto_container">
+  //       <button class="btn-eliminar-auto" data-id=${this.id}>eliminar</button>
+  //       <i class="fa-solid fa-pen-to-square icon-edit-auto" style="font-size: 1em" data-id=${
+  //         this.id
+  //       } id="btn-editar"></i>
+  //     </td>
+  //   </tr>
+
+  //   `;
+  // }
 
   mostrarDetalle() {
     return /*html*/ `
@@ -101,7 +117,7 @@ export default class Auto {
           <h3>${this.marca}</h3>
         </div>
       </div>
-    `
+    `;
   }
 
   // mostrarDetalle() {
@@ -128,7 +144,6 @@ export default class Auto {
 //           <td>${this.otrosDatos}</td>
 //         </tr>
 //       `;
-
 
 // `
 // //     <li class="item-auto">

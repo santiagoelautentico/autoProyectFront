@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Editar Auto</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="" alt="Logo" />
+        <h2>Nombre</h2>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="home.html">Agregar Nuevo Auto</a></li>
+          <li><a href="home.html">Editar Auto</a></li>
+        </ul>
+      </nav>
+      <div id="perfil">
+        <p>Usuario</p>
+      </div>
+    </header>
+
+    <section id="nuevo-auto-section" class="detalle-container">
+      <h2>NUEVO AUTO</h2>
+      <form id="nuevo-auto-form" class="form-nuevoAuto">
+        <div class="label-container">
+          <label for="editar-marca">Marca</label>
+          <input type="text" name="editar-marca" id="editar-marca" />
+        </div>
+        <div class="label-container">
+          <label for="editar-modelo">Modelo</label>
+          <input type="text" name="editar-modelo" id="editar-modelo" />
+        </div>
+        <div class="label-container">
+          <label for="editar-año">Año</label>
+          <input type="number" name="editar-año" id="editar-año" />
+        </div>
+        <div class="label-container">
+          <label for="editar-color">Color</label>
+          <input type="text" name="editar-color" id="editar-color" />
+        </div>
+        <div class="label-container">
+          <label for="editar-precio">Precio</label>
+          <input type="number" name="editar-precio" id="editar-precio" />
+        </div>
+        <div class="label-container">
+          <label for="editar-imagen">Imagen</label>
+          <input type="text" name="editar-imagen" id="editar-imagen" />
+        </div>
+        <div class="label-container">
+          <label for="editar-planDePago">Plan de pago</label>
+          <input type="text" name="editar-planDePago" id="editar-planDePago" />
+        </div>
+        <div class="label-container">
+          <label for="editar-motor">Motor</label>
+          <input type="text" name="editar-motor" id="editar-motor" />
+        </div>
+        <div class="label-container">
+          <label>Uso del auto</label>
+          <select name="condicion" id="editar-condicion">
+            <option value="" disabled selected>Condicion</option>
+            <option value="nuevo">nuevo</option>
+            <option value="usado">usado</option>
+          </select>
+        </div>
+        <div class="label-container">
+          <label for="editar-puertas">Puertas</label>
+          <input type="number" name="editar-puertas" id="editar-puertas" />
+        </div>
+        <div class="label-container">
+          <label for="editar-kilometros">kilometros</label>
+          <input
+            type="number"
+            name="editar-kilometros"
+            id="editar-kilometros"
+          />
+        </div>
+        <div class="label-container">
+          <label for="editar-numeroDePlazas">Numero de plazas</label>
+          <input
+            type="number"
+            name="editar-numeroDePlazas"
+            id="editar-numeroDePlazas"
+          />
+        </div>
+        <div class="label-container">
+          <label for="editar-papelesAlDia">Uso del auto</label>
+          <div class="checkbox">
+            <label for="">papeles Al Dia</label>
+            <select name="" id="editar-papelesAlDia">
+              <option value="true">Si</option>
+              <option value="false">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="label-container">
+          <label for="editar-combustible">Combustible</label>
+          <input type="text" name="combustible" id="editar-combustible" />
+        </div>
+        <div class="label-container">
+          <label for="editar-acercaDelAuto">Más Detalles</label>
+          <input
+            type="text"
+            name="editar-acercaDelAuto"
+            id="editar-acercaDelAuto"
+          />
+        </div>
+        <input type="button" id="boton-editar-auto" value="Crear" />
+      </form>
+
+      <h2 class="lista-error" id="lista-error"></h2>
+    </section>
+
+    <script type="module" src="js/editar-auto.js"></script>
+  </body>
+</html>

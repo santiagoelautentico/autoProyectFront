@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Nuevo Auto</title>
   </head>
   <body>
@@ -60,47 +66,30 @@
           <input type="text" name="motor" id="motor" />
         </div>
         <div class="label-container">
-          <label for="puertas">Uso del auto</label>
-          <div class="checkbox">
-            <label for="usado"
-              ><input
-                type="checkbox"
-                name="usado"
-                id="usado"
-                value="true"
-              />Usado</label
-            >
-            <label for="nuevo"
-              ><input
-                type="checkbox"
-                name="nuevo"
-                id="nuevo"
-                value="false"
-              />Nuevo</label
-            >
-          </div>
+          <select name="condicion" id="condicion">
+            <option value="nuevo">nuevo</option>
+            <option value="usado">usado</option>
+          </select>
         </div>
         <div class="label-container">
           <label for="puertas">Puertas</label>
           <input type="number" name="puertas" id="puertas" />
         </div>
         <div class="label-container">
-          <label for="kilometros">kilometros</label>
-          <input type="number" name="kilometros" id="kilometros" />
+          <label for="Kilometros">kilometros</label>
+          <input type="number" name="Kilometros" id="Kilometros" />
         </div>
         <div class="label-container">
           <label for="numeroDePlazas">Numero de plazas</label>
           <input type="number" name="numeroDePlazas" id="numeroDePlazas" />
         </div>
         <div class="label-container">
-          <label for="papelesAlDia">Uso del auto</label>
-          <div class="checkbox">
-            <label for="">papeles Al Dia</label>
-            <select name="" id="papelesAlDia">
-              <option value="true">Si</option>
-              <option value="false">No</option>
-            </select>
-          </div>
+          <label for="">papeles Al Dia</label>
+          <select name="" id="papelesAlDia">
+            <option value="" disabled selected>seleccione un valor</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
         </div>
         <div class="label-container">
           <label for="combustible">Combustible</label>

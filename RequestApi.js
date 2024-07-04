@@ -26,7 +26,20 @@ export class RequestsAPI {
   static urlBaseBackend = "https://autoproyectbackend.onrender.com";
 
   static getAutos(opciones = {}) {
-    return fetch(obtenerUrl("autos"), { headers })
+    const queryParams = new URLSearchParams({});
+    if (opciones.filtroMarca) {
+      queryParams.set("marca", opciones.filtroMarca);
+    }
+    if (opciones.filtroCondicion) {
+      queryParams.set("condicion", opciones.filtroCondicion);
+    }
+    if (opciones.filtroColor) {
+      queryParams.set("color", opciones.filtroColor);
+    }
+    if (opciones.filtroKilometros) {
+      queryParams.set("kilometros", opciones.filtroKilometros);
+    }
+    return fetch(obtenerUrl("autos?" + queryParams), { headers })
       .then(procesarRespuesta)
       .catch(manejarErrores);
   }
@@ -48,6 +61,53 @@ export class RequestsAPI {
 
   static postAuto(body) {
     return fetch(obtenerUrl("auto"), { method: "POST", body, headers })
+      .then(procesarRespuesta, console.log(body, "body"))
+      .catch(manejarErrores);
+  }
+
+  static putAuto(
+    idAuto,
+    modelo,
+    marca,
+    año,
+    color,
+    precio,
+    imagen,
+    planDePago,
+    motor,
+    usado,
+    nuevo,
+    puertas,
+    kilometros,
+    numeroDePlazas,
+    papelesAlDia,
+    combustible,
+    acercaDelAuto
+  ) {
+    const body = JSON.stringify({
+      modelo,
+      marca,
+      año,
+      color,
+      precio,
+      imagen,
+      planDePago,
+      motor,
+      usado,
+      nuevo,
+      puertas,
+      kilometros,
+      numeroDePlazas,
+      papelesAlDia,
+      combustible,
+      acercaDelAuto,
+    });
+
+    return fetch(obtenerUrl(`auto/${idAuto}`), {
+      method: "PUT",
+      body,
+      headers,
+    })
       .then(procesarRespuesta)
       .catch(manejarErrores);
   }

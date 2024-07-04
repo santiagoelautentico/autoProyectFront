@@ -12,23 +12,23 @@ document.querySelector("#boton-nuevo-auto").addEventListener("click", () => {
     const imagen = obtenerValorInput("imagen");
     const planDePago = obtenerValorInput("planDePago");
     const motor = obtenerValorInput("motor");
-    const usado = obtenerValorInput("usado");
+    const condicion = obtenerValorInput("condicion");
     const puertas = obtenerValorInput("puertas");
-    const kilometros = obtenerValorInput("kilometros");
+    const Kilometros = obtenerValorInput("Kilometros");
     const numeroDePlazas = obtenerValorInput("numeroDePlazas");
     const papelesAlDia = obtenerValorInput("papelesAlDia");
     const combustible = obtenerValorInput("combustible");
     const acercaDelAuto = obtenerValorInput("acercaDelAuto");
 
-    if (!marca || !modelo || !año || !color || !precio || !imagen || !planDePago || !motor || !usado || !puertas || !kilometros || !numeroDePlazas || !papelesAlDia || !combustible || !acercaDelAuto) {
+    if (!marca || !modelo || !año || !color || !precio || !imagen || !planDePago || !motor || !condicion || !puertas || !Kilometros || !numeroDePlazas || !papelesAlDia || !combustible || !acercaDelAuto) {
         imprimir("lista-error", "Todos los campos son obligatorios");
         return;
     };
 
-    const body = JSON.stringify({ marca, modelo, año, color, precio, imagen, planDePago, motor, usado, puertas, kilometros, numeroDePlazas, papelesAlDia, combustible, acercaDelAuto });
+    const body = JSON.stringify({ marca, modelo, año, color, precio, imagen, planDePago, motor, condicion, puertas, Kilometros, numeroDePlazas, papelesAlDia, combustible, acercaDelAuto });
 
     RequestsAPI.postAuto(body)
-        .then(() => window.location.reload())
+        .then(() => window.location.reload(), console.log(body, "body"))
         .catch((error) => {
             imprimir("lista-error", error);
         });

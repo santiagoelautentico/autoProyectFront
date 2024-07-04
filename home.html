@@ -1,40 +1,122 @@
+<!-- <select name="marcas-select" id="marcas-select">
+            <option value="" disabled selected>Marcas de auto</option>
+            <option value="">Todos</option>
+            <option value="chevrolet">chevrolet</option>
+            <option value="Renault">Renault</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Ferrari">Ferrari</option>
+          </select>
+          <select name="condicion" id="condicion-select">
+            <option value="" disabled selected>Condicion</option>
+            <option value="nuevo">nuevo</option>
+            <option value="usado">usado</option>
+          </select>
+          <select name="color-select" id="color-select">
+            <option value="" disabled selected>Color</option>
+            <option value="blanco">blanco</option>
+            <option value="gris">gris</option>
+            <option value="negro">negro</option>
+            <option value="azul">azul</option>
+            <option value="rojo">rojo</option>
+          </select>
+          <select name="" id="kilometros-select">
+            <option value="" disabled selected>Kilometros</option>
+            <option value="0">0km</option>
+            <option value="50000">50000km</option>
+          </select> -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Home</title>
   </head>
   <body>
     <header>
-      <div class="logo-container">
-        <img src="" alt="Logo" />
-        <h2>Nombre</h2>
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="home.html">Agregar Nuevo Auto</a></li>
-          <li><a href="home.html">Editar Auto</a></li>
-        </ul>
-      </nav>
-      <div id="perfil">
-        <p>Usuario</p>
+      <div class="header-container">
+        <div class="logo-container">
+          <img src="" alt="Logo" />
+          <h2>Nombre</h2>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="nuevo-auto.html">Agregar Nuevo Auto</a></li>
+            <li><a href="home.html">Editar Auto</a></li>
+          </ul>
+        </nav>
+        <div id="perfil">
+          <p>Usuario</p>
+        </div>
       </div>
     </header>
     <section class="home-container">
       <article class="filtros-container">
-        <h3>Filtros</h3>
-        <ul>
-          <select name="marcas-select" id="marcas-select">
-            <option value="chevrolet">chevrolet</option>
-            <option value="chevrolet">Renault</option>
-            <option value="chevrolet">Tesla</option>
-            <option value="chevrolet">Suzuki</option>
-            <option value="chevrolet">Hyundai</option>
-          </select>
-        </ul>
+        <div class="filtros">
+          <h3 class="filtros-titulo">Filtros</h3>
+          <div class="select-menu">
+            <div class="select-btn">
+              <span class="titulo-select">Marcas</span>
+              <i class="fa-solid fa-angles-down"></i>
+            </div>
+            <ul class="opciones">
+              <li class="opcionMarcas opcion" value="tesla">
+                <img class="icon-filtro" src="https://static-00.iconduck.com/assets.00/tesla-icon-2048x2048-sjiczfz2.png" alt="">
+                <span>Tesla</span>
+              </li>
+              <li class="opcionMarcas opcion" value="suzuki">
+                <img class="icon-filtro" src="https://static-00.iconduck.com/assets.00/suzuki-icon-509x512-wrzfaydo.png" alt="">
+                <span>Suzuki</span>
+              </li>
+              <li class="opcionMarcas opcion" value="chevrolet">
+                <img class="icon-filtro" src="https://cdn.iconscout.com/icon/free/png-256/free-chevrolet-17-827474.png" alt="">
+                <span>Chevrolet</span>
+              </li>
+              <li class="opcionMarcas opcion" value="renault">
+                <img class="icon-filtro" src="https://cdn.iconscout.com/icon/free/png-256/free-renault-3-827482.png" alt="">
+                <span>Renault</span>
+              </li>
+              <li class="opcionMarcas opcion" value="fiat">
+                <img class="icon-filtro" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjiWod6sBCIXlRBp4kC9_WgFBSYHBhhP3cQ&s" alt="">
+                <span>Fiat</span>
+              </li>
+            </ul>
+          </div>
+          <div class="select-menu">
+            <div class="select-btn">
+              <span class="titulo-select">Colores</span>
+              <i class="fa-solid fa-angles-down"></i>
+            </div>
+            <ul class="opciones">
+              <li class="opcionColores opcion" value="blanco">
+                <span>Blanco</span>
+              </li>
+              <li class="opcionColores opcion" value="rojo">
+                <span>Rojo</span>
+              </li>
+              <li class="opcionColores opcion" value="negro">
+                <span>Negro</span>
+              </li>
+              <li class="opcionColores opcion" value="Azul">
+                <span>azul</span>
+              </li>
+              <li class="opcionColores opcion" value="verde">
+                <span>Verde</span>
+              </li>
+            </ul>
+          </div>
+          <button class="reiniciarFiltros">Reiniciar Filtros</button>
+        </div>
       </article>
       <article class="right-container">
         <div class="header-right">
@@ -48,12 +130,39 @@
             </form>
           </div>
           <div class="icons-container">
-            <i class="fa-solid fa-trash-can icon-trash" style="color: white; font-size: 1.5em"></i>
-            <i class="fa-solid fa-pen-to-square icon-edit" style="font-size: 1.5em"></i>
+            <a href="nuevo-auto.html">Editar Auto</a>
           </div>
         </div>
         <div class="tabla_autos-container">
-          <table class="tabla">
+          <div class="titulos-tabla">
+            <div class="empty"></div>
+            <h3>Nombre del auto</h3>
+            <h3>Monto</h3>
+            <h3>Año</h3>
+            <h3>Condición</h3>
+            <h3>Kilometros</h3>
+            <div class="empty"></div>
+            <div class="empty"></div>
+          </div>
+          <div id="lista-autos">
+            
+          </div>
+        </div>
+      </article>
+    </section>
+    <!-- <section id="lista-autos">
+
+    </section> -->
+    <div id="lista-error"></div>
+    <script type="module" src="js/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e68b49459b.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+   <!-- <table class="tabla">
             <thead>
               <tr>
                 <th></th>
@@ -66,50 +175,4 @@
               </tr>
             </thead>
             <tbody id="lista-autos"></tbody>
-          </table>
-        </div>
-      
-      </article>
-    </section>
-    <!-- <section id="lista-autos">
-
-    </section> -->
-    <div id="lista-error"></div>
-    <script type="module" src="js/index.js"></script>
-    <script src="https://kit.fontawesome.com/e68b49459b.js" crossorigin="anonymous"></script>
-  </body>
-</html>
-
-<!-- <article class="header-home">
-        <div class="filtros">
-          <ul>
-            <li>filtro</li>
-          </ul>
-        </div>
-        <div class="search-container">
-          <form action="">
-            <label for="btn-buscar">Busca cualquier auto</label>
-            <div>
-              <input type="text" placeholder="Buscar..." />
-              <button id="btn-buscar">Buscar</button>
-            </div>
-          </form>
-        </div>
-      </article>
-      <article class="container-lista_autos">
-        <div class="header-lista_autos"></div>
-        <div id="lista-autos"></div>
-      </article> -->
-
-
-        <!-- <div class="lista_autos-container">
-          <ul class="header-lista_autos">
-            <li>Nombre del auto</li>
-            <li>Año</li>
-            <li>Monto</li>
-            <li>Usado</li>
-            <li>Disponible</li>
-            <li></li>
-          </ul>
-          <ul id="lista-autos"></ul>
-        </div> -->
+          </table> -->

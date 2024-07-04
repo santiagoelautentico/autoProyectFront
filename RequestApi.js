@@ -27,6 +27,9 @@ export class RequestsAPI {
 
   static getAutos(opciones = {}) {
     const queryParams = new URLSearchParams({});
+    if( opciones.filtroModelo){
+      queryParams.set("modelo", opciones.filtroModelo);
+    }
     if (opciones.filtroMarca) {
       queryParams.set("marca", opciones.filtroMarca);
     }

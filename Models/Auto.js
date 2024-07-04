@@ -25,12 +25,11 @@ export default class Auto {
   imagen;
   planDePago;
   motor;
-  usado;
+  condicion;
   puertas;
-  kilometros;
+  Kilometros;
   numeroDePlazas;
   papelesAlDia;
-  tipoDeCaja;
   combustible;
   acercaDelAuto;
 
@@ -44,12 +43,11 @@ export default class Auto {
     imagen = "",
     planDeAuto = "",
     motor = "",
-    usado = false,
+    condicion = false,
     puertas = 0,
     Kilometros = 0,
     numeroDePlazas = 0,
     papelesAlDia = false,
-    tipoDeCaja = "",
     combustible = "",
     acercaDelAuto = ""
   ) {
@@ -62,24 +60,24 @@ export default class Auto {
     this.imagen = imagen;
     this.planDeAuto = planDeAuto;
     this.motor = motor;
-    this.usado = usado;
+    this.condicion = condicion;
     this.puertas = puertas;
     this.Kilometros = Kilometros;
     this.numeroDePlazas = numeroDePlazas;
     this.papelesAlDia = papelesAlDia;
-    this.tipoDeCaja = tipoDeCaja;
     this.combustible = combustible;
     this.acercaDelAuto = acercaDelAuto;
   }
 
   mostrarEnLista() {
+    console.log(this.puertas);
     return /*html*/ `
       <div class="auto" id=${this.id}>
         <div class=${this.marca}></div>
         <h3>${this.modelo}</h3>
         <h3>U$D ${this.precio}</h3>
         <h3>${this.año}</h3>
-        <h3>${this.usado ? "Nuevo" : "Usado"}</h3>
+        <h3>${this.condicion ? "Nuevo" : "Usado"}</h3>
         <h3>${this.Kilometros} Km</h3>
         <button class="btn-editar btn-auto" data-id=${this.id}>Editar</button>
         <button class="btn-eliminar btn-auto" data-id=${this.id}>Eliminar</button>

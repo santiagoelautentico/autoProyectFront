@@ -16,10 +16,9 @@ function mostrarListaDeAutos(data) {
         auto.imagen,
         auto.planDePago,
         auto.motor,
-        auto.usado,
+        auto.condicion,
         auto.puertas,
-        auto.kilometros,
-        auto.kilometros,
+        auto.Kilometros,
         auto.numeroDePlazas,
         auto.papelesAlDia,
         auto.combustible,
@@ -28,6 +27,10 @@ function mostrarListaDeAutos(data) {
     )
     .join("");
   imprimir("lista-autos", listadoDeAutos);
+
+  let numeroAutos = data.length;
+
+  imprimir("total-autos", `<h2>Total de autos: ${numeroAutos}</h2>`);
 
   const borrarAuto = document.querySelectorAll(".btn-eliminar");
   borrarAuto.forEach((btn) => {
@@ -59,11 +62,15 @@ function mostrarListaDeAutos(data) {
 // const menuFiltro = document.querySelector(".select-menu");
 const opcionFiltroMarcas = document.querySelectorAll(".opcionMarcas");
 const opcionFiltroColores = document.querySelectorAll(".opcionColores");
+const inputBusqueda = document.querySelector(".input-buscar");
+const btnBuscar = document.querySelector(".btn-buscar");
 // const filtrarBtn = document.getElementById("btn-filtrar");
+let filtroModelo = "";
 let filtroMarca = "";
 let filtroColor = "";
 let filtroCondicion = "";
 let filtroKilometros = "";
+
 opcionFiltroMarcas.forEach((opcion) => {
   opcion.addEventListener("click", () => {
     if (localStorage.getItem("marcas")) {
@@ -73,6 +80,7 @@ opcionFiltroMarcas.forEach((opcion) => {
     filtroMarca = localStorage.getItem("marcas");
     console.log(filtroMarca);
     RequestsAPI.getAutos({
+      filtroModelo,
       filtroMarca,
       filtroCondicion,
       filtroColor,
@@ -92,6 +100,7 @@ opcionFiltroColores.forEach((opcion) => {
     filtroColor = localStorage.getItem("colores");
     console.log(filtroColor);
     RequestsAPI.getAutos({
+      filtroModelo,
       filtroMarca,
       filtroCondicion,
       filtroColor,
@@ -100,6 +109,16 @@ opcionFiltroColores.forEach((opcion) => {
       .then(mostrarListaDeAutos)
       .catch(mostrarError);
   });
+});
+
+btnBuscar.addEventListener("click", () => {
+  let filtroModeloValue = inputBusqueda.value;
+  filtroModelo = encodeURIComponent(filtroModeloValue);
+  RequestsAPI.getAutos({
+    filtroModelo,
+  })
+    .then(mostrarListaDeAutos)
+    .catch(mostrarError);
 });
 
 const reiniciarFiltros = document.querySelector(".reiniciarFiltros");
@@ -114,16 +133,3 @@ const mostrarError = (error) => {
   imprimir("lista-error", error);
 };
 RequestsAPI.getAutos().then(mostrarListaDeAutos).catch(mostrarError);
-
-// document.querySelector("#btn-filtrar").addEventListener("click", () => {
-//   const filtroMarca = obtenerValorInput("marcas-select");
-//   const filtroCondicion = obtenerValorInput("condicion-select");
-//   const filtroColor = obtenerValorInput("color-select");
-//   const filtroKilometros = obtenerValorInput("kilometros-select");
-
-//   console.log("algo", filtroMarca);
-
-//   RequestsAPI.getAutos({ filtroMarca, filtroCondicion, filtroColor, filtroKilometros })
-//     .then(mostrarListaDeAutos, console.log("request"))
-//     .catch(mostrarError);
-// });

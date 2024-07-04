@@ -25,7 +25,7 @@ const popularCampos = (data) => {
   document.querySelector("#editar-motor").value = data.motor;
   document.querySelector("#editar-puertas").value = data.puertas;
   document.querySelector("#editar-kilometros").value = data.Kilometros;
-  document.querySelector("#editar-numeroDePlazas").value = data.numeroDePlazas;
+  document.querySelector("#editar-numeroDePlazas").value = data.NumeroDePlazas;
   document.querySelector("#editar-papelesAlDia").value = data.papelesAlDia;
   document.querySelector("#editar-combustible").value = data.combustible;
   document.querySelector("#editar-acercaDelAuto").value = data.acercaDelAuto;
@@ -46,6 +46,7 @@ document.querySelector("#boton-editar-auto").addEventListener("click", () => {
   const imagen = obtenerValorInput("editar-imagen");
   const planDePago = obtenerValorInput("editar-planDePago");
   const motor = obtenerValorInput("editar-motor");
+  const condicion = obtenerValorInput("editar-condicion");
   const puertas = obtenerValorInput("editar-puertas");
   const kilometros = obtenerValorInput("editar-kilometros");
   const numeroDePlazas = obtenerValorInput("editar-numeroDePlazas");

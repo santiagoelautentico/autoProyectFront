@@ -15,22 +15,24 @@ document.querySelector("#boton-nuevo-auto").addEventListener("click", () => {
     const condicion = obtenerValorInput("condicion");
     const puertas = obtenerValorInput("puertas");
     const Kilometros = obtenerValorInput("Kilometros");
-    const numeroDePlazas = obtenerValorInput("numeroDePlazas");
+    const NumeroDePlazas = obtenerValorInput("NumeroDePlazas");
     const papelesAlDia = obtenerValorInput("papelesAlDia");
     const combustible = obtenerValorInput("combustible");
     const acercaDelAuto = obtenerValorInput("acercaDelAuto");
 
-    if (!marca || !modelo || !año || !color || !precio || !imagen || !planDePago || !motor || !condicion || !puertas || !Kilometros || !numeroDePlazas || !papelesAlDia || !combustible || !acercaDelAuto) {
+
+    if (!marca || !modelo || !año || !color || !precio || !imagen || !planDePago || !motor || !condicion || !puertas || !Kilometros || !NumeroDePlazas || !papelesAlDia || !combustible || !acercaDelAuto) {
         imprimir("lista-error", "Todos los campos son obligatorios");
         return;
     };
 
-    const body = JSON.stringify({ marca, modelo, año, color, precio, imagen, planDePago, motor, condicion, puertas, Kilometros, numeroDePlazas, papelesAlDia, combustible, acercaDelAuto });
+    const body = JSON.stringify({ marca, modelo, año, color, precio, imagen, planDePago, motor, condicion, puertas, Kilometros, NumeroDePlazas, papelesAlDia, combustible, acercaDelAuto });
 
     RequestsAPI.postAuto(body)
-        .then(() => window.location.reload(), console.log(body, "body"))
+        .then(() => window.location.reload(), console.log(body, "body"), console.log(condicion, "condicion"))
         .catch((error) => {
             imprimir("lista-error", error);
+            
         });
 
 });

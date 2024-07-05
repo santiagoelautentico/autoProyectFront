@@ -1,6 +1,20 @@
 import Auto from "../Models/Auto.js";
 import { RequestsAPI } from "../RequestApi.js";
-import { imprimir, obtenerValorInput } from "../utils/functions.js";
+import { imprimir, obtenerValorInput, validarSesion } from "../utils/functions.js";
+
+validarSesion();
+
+const userItem = document.querySelector(".user");
+const user = JSON.parse(sessionStorage.getItem("user"));
+console.log(user, "user");
+userItem.innerHTML = `Hola bienvenido, ${user.nombre}`;
+
+const btnLogout = document.querySelector(".logout");
+
+btnLogout.addEventListener("click", () => {
+  sessionStorage.removeItem("session");
+  window.location.replace("login.html");
+})
 
 function mostrarListaDeAutos(data) {
   imprimir("lista-error", "");
@@ -10,13 +24,17 @@ function mostrarListaDeAutos(data) {
         auto.id,
         auto.marca,
         auto.modelo,
-        auto.año,
+        auto.condicion,
         auto.color,
+        auto.año,
         auto.precio,
         auto.imagen,
+        auto.imagen2,
+        auto.imagen3,
+        auto.imagen4,
+        auto.imagen5,
         auto.planDePago,
         auto.motor,
-        auto.condicion,
         auto.puertas,
         auto.Kilometros,
         auto.numeroDePlazas,
@@ -59,55 +77,110 @@ function mostrarListaDeAutos(data) {
     });
   });
 }
-// const menuFiltro = document.querySelector(".select-menu");
-const opcionFiltroMarcas = document.querySelectorAll(".opcionMarcas");
-const opcionFiltroColores = document.querySelectorAll(".opcionColores");
 const inputBusqueda = document.querySelector(".input-buscar");
 const btnBuscar = document.querySelector(".btn-buscar");
-// const filtrarBtn = document.getElementById("btn-filtrar");
+
 let filtroModelo = "";
 let filtroMarca = "";
 let filtroColor = "";
 let filtroCondicion = "";
 let filtroKilometros = "";
 
-opcionFiltroMarcas.forEach((opcion) => {
-  opcion.addEventListener("click", () => {
-    if (localStorage.getItem("marcas")) {
-      localStorage.removeItem("marcas");
-    }
-    localStorage.setItem("marcas", opcion.getAttribute("value"));
-    filtroMarca = localStorage.getItem("marcas");
-    console.log(filtroMarca);
-    RequestsAPI.getAutos({
-      filtroModelo,
-      filtroMarca,
-      filtroCondicion,
-      filtroColor,
-      filtroKilometros,
-    })
-      .then(mostrarListaDeAutos)
-      .catch(mostrarError);
+document.addEventListener("DOMContentLoaded", () => {
+  const opcionFiltroMarcas = document.querySelectorAll(".opcionMarcas");
+  opcionFiltroMarcas.forEach((opcion) => {
+    opcion.addEventListener("click", () => {
+      if (localStorage.getItem("marcas")) {
+        localStorage.removeItem("marcas");
+      }
+      localStorage.setItem("marcas", opcion.getAttribute("value"));
+      filtroMarca = localStorage.getItem("marcas");
+
+      imprimir(
+        "filtrosApliMarcas",
+        `<p class="filtros-aplicados"><spam class="filtros-aplicados-icon icon-marca"><i class="fa-solid fa-xmark"></i></spam> ${filtroMarca}</p>`
+      );
+
+      const iconMarca = document.querySelector(".icon-marca");
+
+      if (iconMarca) {
+        iconMarca.addEventListener("click", () => {
+          localStorage.removeItem("marcas");
+          imprimir("filtrosApliMarcas", "");
+          RequestsAPI.getAutos({
+            filtroModelo,
+            filtroCondicion,
+            filtroColor,
+            filtroKilometros,
+          })
+            .then(mostrarListaDeAutos)
+            .catch(mostrarError);
+        });
+      } else {
+        console.error(
+          "El elemento con la clase 'icon-marca' no se encontró en el DOM."
+        );
+      }
+      RequestsAPI.getAutos({
+        filtroModelo,
+        filtroMarca,
+        filtroCondicion,
+        filtroColor,
+        filtroKilometros,
+      })
+        .then(mostrarListaDeAutos)
+        .catch(mostrarError);
+    });
   });
 });
-opcionFiltroColores.forEach((opcion) => {
-  opcion.addEventListener("click", () => {
-    if (localStorage.getItem("colores")) {
-      localStorage.removeItem("colores");
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  const opcionFiltroColores = document.querySelectorAll(".opcionColores");
 
-    localStorage.setItem("colores", opcion.getAttribute("value"));
-    filtroColor = localStorage.getItem("colores");
-    console.log(filtroColor);
-    RequestsAPI.getAutos({
-      filtroModelo,
-      filtroMarca,
-      filtroCondicion,
-      filtroColor,
-      filtroKilometros,
-    })
-      .then(mostrarListaDeAutos)
-      .catch(mostrarError);
+  opcionFiltroColores.forEach((opcion) => {
+    opcion.addEventListener("click", () => {
+      if (localStorage.getItem("colores")) {
+        localStorage.removeItem("colores");
+      }
+
+      localStorage.setItem("colores", opcion.getAttribute("value"));
+      filtroColor = localStorage.getItem("colores");
+
+      imprimir(
+        "filtrosApliColores",
+        `<p class="filtros-aplicados"><spam class="filtros-aplicados-icon icon-color"><i class="fa-solid fa-xmark"></i></spam> ${filtroColor}</p>`
+      );
+
+      const iconColor = document.querySelector(".icon-color");
+
+      if (iconColor) {
+        iconColor.addEventListener("click", () => {
+          localStorage.removeItem("colores");
+          imprimir("filtrosApliColores", "");
+          RequestsAPI.getAutos({
+            filtroMarca,
+            filtroModelo,
+            filtroCondicion,
+            filtroKilometros,
+          })
+            .then(mostrarListaDeAutos)
+            .catch(mostrarError);
+        });
+      } else {
+        console.error(
+          "El elemento con la clase 'icon-color' no se encontró en el DOM."
+        );
+      }
+
+      RequestsAPI.getAutos({
+        filtroModelo,
+        filtroMarca,
+        filtroCondicion,
+        filtroColor,
+        filtroKilometros,
+      })
+        .then(mostrarListaDeAutos)
+        .catch(mostrarError);
+    });
   });
 });
 

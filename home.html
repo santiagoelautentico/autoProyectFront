@@ -1,32 +1,3 @@
-<!-- <select name="marcas-select" id="marcas-select">
-            <option value="" disabled selected>Marcas de auto</option>
-            <option value="">Todos</option>
-            <option value="chevrolet">chevrolet</option>
-            <option value="Renault">Renault</option>
-            <option value="Tesla">Tesla</option>
-            <option value="Suzuki">Suzuki</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="Ferrari">Ferrari</option>
-          </select>
-          <select name="condicion" id="condicion-select">
-            <option value="" disabled selected>Condicion</option>
-            <option value="nuevo">nuevo</option>
-            <option value="usado">usado</option>
-          </select>
-          <select name="color-select" id="color-select">
-            <option value="" disabled selected>Color</option>
-            <option value="blanco">blanco</option>
-            <option value="gris">gris</option>
-            <option value="negro">negro</option>
-            <option value="azul">azul</option>
-            <option value="rojo">rojo</option>
-          </select>
-          <select name="" id="kilometros-select">
-            <option value="" disabled selected>Kilometros</option>
-            <option value="0">0km</option>
-            <option value="50000">50000km</option>
-          </select> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,18 +16,17 @@
     <header>
       <div class="header-container">
         <div class="logo-container">
-          <img src="" alt="Logo" />
-          <h2>Nombre</h2>
+          <img src="./img/carboost.svg" alt="Logo" class="logo"/>
         </div>
         <nav>
           <ul class="menu">
             <li><a href="home.html">Home</a></li>
             <li><a href="nuevo-auto.html">Agregar Nuevo Auto</a></li>
-            <li><a href="home.html">Editar Auto</a></li>
           </ul>
         </nav>
-        <div id="perfil">
-          <p>Usuario</p>
+        <div id="perfil" class="perfil">
+          <p class="user" id="user"></p>
+          <span class="logout" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</span>
         </div>
       </div>
     </header>
@@ -64,6 +34,8 @@
       <article class="filtros-container">
         <div class="filtros">
           <h3 class="filtros-titulo">Filtros</h3>
+          <div id="filtrosApliMarcas"></div>
+          <div id="filtrosApliColores"></div>
           <div class="select-menu">
             <div class="select-btn">
               <span class="titulo-select">Marcas</span>
@@ -90,6 +62,10 @@
                 <img class="icon-filtro" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjiWod6sBCIXlRBp4kC9_WgFBSYHBhhP3cQ&s" alt="">
                 <span>Fiat</span>
               </li>
+              <li class="opcionMarcas opcion" value="hyundai">
+                <img class="icon-filtro" src="https://cdn.iconscout.com/icon/free/png-256/free-hyundai-3215422-2673840.png?f=webp" alt="">
+                <span>Hyundai</span>
+              </li>
             </ul>
           </div>
           <div class="select-menu">
@@ -115,7 +91,7 @@
               </li>
             </ul>
           </div>
-          <button class="reiniciarFiltros">Reiniciar Filtros</button>
+          <button class="reiniciarFiltros btn-callAction"><i class="fa-solid fa-power-off"></i> <span>Reiniciar Filtros</span></button>
         </div>
       </article>
       <article class="right-container">

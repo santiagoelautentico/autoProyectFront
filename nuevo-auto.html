@@ -14,94 +14,223 @@
   </head>
   <body>
     <header>
-      <div class="logo-container">
-        <img src="" alt="Logo" />
-        <h2>Nombre</h2>
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="home.html">Agregar Nuevo Auto</a></li>
-          <li><a href="home.html">Editar Auto</a></li>
-        </ul>
-      </nav>
-      <div id="perfil">
-        <p>Usuario</p>
+      <div class="header-container">
+        <div class="logo-container">
+          <img src="" alt="Logo" />
+          <h2>Nombre</h2>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="nuevo-auto.html">Agregar Nuevo Auto</a></li>
+          </ul>
+        </nav>
+        <div id="perfil">
+          <p>Usuario</p>
+        </div>
       </div>
     </header>
 
     <section id="nuevo-auto-section" class="detalle-container">
-      <h2>NUEVO AUTO</h2>
-      <form id="nuevo-auto-form" class="form-nuevoAuto">
-        <div class="label-container">
-          <label for="modelo">Marca</label>
-          <input type="text" name="marca" id="marca" />
+      <div class="titulo">
+        <h2>Nuevo Auto</h2>
+      </div>
+      <form action="" id="nuevo-auto-form" class="nuevoAuto-container">
+        <div class="detalles-principales">
+          <h3 class="subtitulo">Detalles Principales</h3>
+          <div class="input-container">
+            <label for="marca">Marca</label>
+            <select type="text" name="marca" id="marca" class="input" required>
+              <option value="">-- Seleccionar --</option>
+              <option value="Tesla">Tesla</option>
+              <option value="Renault">Renault</option>
+              <option value="Chevrolet">Chevrolet</option>
+              <option value="Suzuki">Suzuki</option>
+              <option value="Hyundai">Hyundai</option>
+            </select>
+          </div>
+          <div class="input-container">
+            <label for="modelo">Modelo</label>
+            <input
+              type="text"
+              name="modelo"
+              id="modelo"
+              class="input"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="año">Año</label>
+            <input type="number" name="año" id="año" class="input" required />
+          </div>
+          <div class="input-container">
+            <label for="condicion">Condicion</label>
+            <select name="condicion" id="condicion" class="input" required>
+              <option value="">-- Seleccionar --</option>
+              <option value="false">Usado</option>
+              <option value="true">Nuevo</option>
+            </select>
+          </div>
+          <div class="input-container">
+            <label for="precio">Precio</label>
+            <input
+              type="number"
+              name="precio"
+              id="precio"
+              class="input"
+              required
+            />
+          </div>
         </div>
-        <div class="label-container">
-          <label for="modelo">Modelo</label>
-          <input type="text" name="modelo" id="modelo" />
+        <div class="imagenes">
+          <h3 class="subtitulo">Imagenes</h3>
+          <div class="input-container">
+            <label for="imagen">Imagen Principal</label>
+            <input
+              type="text"
+              name="imagen"
+              id="imagen"
+              class="input"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="imagen2">Imagen 2</label>
+            <input
+              type="text"
+              name="imagen2"
+              id="imagen2"
+              class="input"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="imagen3">Imagen 3</label>
+            <input
+              type="text"
+              name="imagen3"
+              id="imagen3"
+              class="input"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="imagen4">Imagen 4</label>
+            <input
+              type="text"
+              name="imagen4"
+              id="imagen4"
+              class="input"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="imagen5">Imagen 5</label>
+            <input
+              type="text"
+              name="imagen5"
+              id="imagen5"
+              class="input"
+              required
+            />
+          </div>
         </div>
-        <div class="label-container">
-          <label for="año">Año</label>
-          <input type="number" name="año" id="año" />
+        <div class="detalles-adicionales">
+          <h3 class="subtitulo">Detalles adicionales</h3>
+          <div class="input-container-dos">
+            <div class="input-container">
+              <label for="planDePago">Plan de pago</label>
+              <input
+                type="text"
+                name="planDePago"
+                id="planDePago"
+                class="input"
+              />
+            </div>
+            <div class="input-container">
+              <label for="color">Color</label>
+              <input
+                type="text"
+                name="color"
+                id="color"
+                class="input"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="motor">Motor</label>
+            <input type="text" name="motor" id="motor" class="input" />
+          </div>
+          <div class="input-container-dos">
+            <div class="input-container">
+              <label for="puertas">Puertas</label>
+              <input type="number" name="puertas" id="puertas" class="input" />
+            </div>
+            <div class="input-container">
+              <label for="numeroDePlazas">Numero de plazas</label>
+              <input
+                type="number"
+                name="NumeroDePlazas"
+                id="NumeroDePlazas"
+                class="input"
+              />
+            </div>
+            <div class="input-container">
+              <label for="Kilometros">Kilometros</label>
+              <input
+                type="number"
+                name="Kilometros"
+                id="Kilometros"
+                class="input"
+              />
+            </div>
+          </div>
+          <div class="input-container-dos">
+            <div class="input-container">
+              <label for="papelesAlDia">Papeles al dia</label>
+              <select name="papelesAlDia" id="papelesAlDia" class="input">
+                <option value="" disabled selected>-- Seleccionar --</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+              </select>
+            </div>
+            <div class="input-container">
+              <label for="tipoDeCaja">Tipo de caja</label>
+              <select name="tipoDeCaja" id="tipoDeCaja" class="input">
+                <option value="" disabled selected>-- Seleccionar --</option>
+                <option value="Manual">Manual</option>
+                <option value="Automatica">Automatica</option>
+              </select>
+            </div>
+            <div class="input-container">
+              <label for="combustible">Combustible</label>
+              <select name="combustible" id="combustible" class="input">
+                <option value="" disabled selected>-- Seleccionar --</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Gasolina">Gasolina</option>
+                <option value="Electrico">Electrico</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="acercaDelAuto">Más Detalles</label>
+            <input
+              type="text"
+              name="acercaDelAuto"
+              id="acercaDelAuto"
+              class="input"
+            />
+          </div>
         </div>
-        <div class="label-container">
-          <label for="color">Color</label>
-          <input type="text" name="color" id="color" />
-        </div>
-        <div class="label-container">
-          <label for="precio">Precio</label>
-          <input type="number" name="precio" id="precio" />
-        </div>
-        <div class="label-container">
-          <label for="imagen">Imagen</label>
-          <input type="text" name="imagen" id="imagen" />
-        </div>
-        <div class="label-container">
-          <label for="planDePago">Plan de pago</label>
-          <input type="text" name="planDePago" id="planDePago" />
-        </div>
-        <div class="label-container">
-          <label for="motor">Motor</label>
-          <input type="text" name="motor" id="motor" />
-        </div>
-        <div class="label-container">
-          <select name="condicion" id="condicion">
-            <option value="true">nuevo</option>
-            <option value="false">usado</option>
-          </select>
-        </div>
-        <div class="label-container">
-          <label for="puertas">Puertas</label>
-          <input type="number" name="puertas" id="puertas" />
-        </div>
-        <div class="label-container">
-          <label for="Kilometros">kilometros</label>
-          <input type="number" name="Kilometros" id="Kilometros" />
-        </div>
-        <div class="label-container">
-          <label for="NumeroDePlazas">Numero de plazas</label>
-          <input type="number" name="NumeroDePlazas" id="NumeroDePlazas" />
-        </div>
-        <div class="label-container">
-          <label for="">papeles Al Dia</label>
-          <select name="" id="papelesAlDia">
-            <option value="" disabled selected>seleccione un valor</option>
-            <option value="true">Si</option>
-            <option value="false">No</option>
-          </select>
-        </div>
-        <div class="label-container">
-          <label for="combustible">Combustible</label>
-          <input type="text" name="combustible" id="combustible" />
-        </div>
-        <div class="label-container">
-          <label for="acercaDelAuto">Más Detalles</label>
-          <input type="text" name="acercaDelAuto" id="acercaDelAuto" />
-        </div>
-        <input type="button" id="boton-nuevo-auto" value="Crear" />
       </form>
-
+      <div class="container-button">
+        <button
+          type="submit"
+          class="btn-callAction btn-agregar"
+          id="boton-nuevo-auto"
+        ></button>
+      </div>
       <h2 class="lista-error"></h2>
     </section>
 

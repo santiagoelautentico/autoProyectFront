@@ -27,7 +27,7 @@ export class RequestsAPI {
 
   static getAutos(opciones = {}) {
     const queryParams = new URLSearchParams({});
-    if( opciones.filtroModelo){
+    if (opciones.filtroModelo) {
       queryParams.set("modelo", opciones.filtroModelo);
     }
     if (opciones.filtroMarca) {
@@ -72,36 +72,44 @@ export class RequestsAPI {
     idAuto,
     modelo,
     marca,
+    condicion,
     año,
     color,
     precio,
     imagen,
+    imagen2,
+    imagen3,
+    imagen4,
+    imagen5,
     planDePago,
     motor,
-    usado,
-    nuevo,
     puertas,
     kilometros,
     numeroDePlazas,
-    papelesAlDia,
+    PapelesAlDia,
+    tipoDeCaja,
     combustible,
     acercaDelAuto
   ) {
     const body = JSON.stringify({
       modelo,
       marca,
+      condicion,
       año,
       color,
       precio,
       imagen,
+      imagen2,
+      imagen3,
+      imagen4,
+      imagen5,
       planDePago,
       motor,
-      usado,
-      nuevo,
       puertas,
       kilometros,
       numeroDePlazas,
-      papelesAlDia,
+      PapelesAlDia,
+      tipoDeCaja,
       combustible,
       acercaDelAuto,
     });
@@ -119,6 +127,11 @@ export class RequestsAPI {
     const body = JSON.stringify({ email, password });
 
     return fetch(obtenerUrl("login"), { method: "POST", body, headers })
+      .then(procesarRespuesta)
+      .catch(manejarErrores);
+  }
+  static register(body) {
+    return fetch(obtenerUrl("registrar"), { method: "POST", body, headers })
       .then(procesarRespuesta)
       .catch(manejarErrores);
   }

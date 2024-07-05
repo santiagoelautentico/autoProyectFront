@@ -14,25 +14,34 @@
   </head>
   <body>
     <section id="login-container" class="login-container">
-      <h1 class="title-login">Login</h1>
-      <form action="Login" id="login-form">
-        <div class="input-login-container">
-          <label for="inp-email">Email</label>
-          <input type="text" placeholder="Email" id="inp-email" required />
-        </div>
-        <div class="input-login-container">
-          <label for="inp-password">password</label>
-          <input
-            type="password"
-            placeholder="Contraseña"
-            id="inp-password"
-            required
-          />
-        </div>
-        <div class="input-login-container button-container">
-          <input type="Button" id="btn-login" value="Login" class="btn-login" />
-        </div>
-      </form>
+      <img src="./img/carboost.svg" class="logo-login" alt="">
+      <div class="login-caja">
+        <h1 class="title-login">Login</h1>
+        <form action="Login" id="login-form">
+          <div class="input-login-container input-container">
+            <label for="inp-email">Email</label>
+            <input type="text" placeholder="Email" id="inp-email" class="input" required />
+          </div>
+          <div class="input-login-container input-container">
+            <label for="inp-password">password</label>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              id="inp-password"
+              required
+              class="input"
+            />
+          </div>
+          <div class="input-login-container button-container">
+            <input
+              type="Button"
+              id="btn-login"
+              value="Login"
+              class="btn-login btn-callAction"
+            />
+          </div>
+        </form>
+      </div>
       <div id="error-login"></div>
     </section>
 

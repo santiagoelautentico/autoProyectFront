@@ -20,6 +20,35 @@ header {
   border-bottom: 2px solid #b4b4b4;
   border-top: 2px solid #b4b4b4 inset;
 }
+.user{
+  cursor: pointer;
+  padding: 2rem;
+}
+.logo{
+  width: 12rem;
+}
+.perfil{
+  position: relative;
+}
+.logout{
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  bottom: 0.5rem;
+  opacity: 0;
+}
+.user:hover + .logout, .logout:hover {
+  opacity: 1;
+  background-color: rgb(255, 0, 0);
+  width: fit-content;
+  padding-block: 0.2rem;
+  padding-inline: 0.5rem;
+  text-align: end;
+  bottom: 0;
+  border-radius: 10px;
+  color: white;
+}
+
 .header-container {
   height: 6rem;
   width: 1440px;
@@ -58,6 +87,15 @@ header {
 
 /*-------------------------------------FILTROS---------------------------------- */
 
+.filtros-aplicados{
+  background-color: rgba(190, 190, 190, 0.596);
+  width: fit-content;
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+.filtros-aplicados-icon{
+  cursor: pointer;
+}
 .filtros-container {
   width: 20%;
   display: flex;
@@ -113,6 +151,14 @@ header {
   width: 100%;
 }
 
+.reiniciarFiltros {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  gap: 5px;
+}
+
 /* --------------------------------------HEADER RIGTH------------------------------------ */
 
 .header-right {
@@ -121,7 +167,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.search-container{
+.search-container {
   width: 35%;
 }
 .input-container {
@@ -137,6 +183,7 @@ header {
   box-shadow: 0 8px 12px #00000028;
   transition: 0.5s;
 }
+
 .input-buscar:hover {
   box-shadow: 0px 4px 12px #16223359;
   box-shadow: 0 8px 32px #0000006c;
@@ -199,7 +246,7 @@ header {
   padding: 1rem;
   font-size: 16px;
 }
-.btn-editar {
+.btn-callAction {
   border: 1px solid #b4b4b4;
   border-radius: 10px;
   background-image: linear-gradient(180deg, #5790ff, #0057ff);
@@ -222,10 +269,12 @@ header {
 }
 
 /* -------------------------------LOGOS MARCAS----------------------------- */
-.Renault,
-.Tesla,
-.Chevrolet,
-.Suzuki {
+.auto > .Renault,
+.auto > .Tesla,
+.auto > .Chevrolet,
+.auto > .Suzuki,
+.auto > .BMW,
+.auto > .Hyundai {
   width: 100%;
   height: 100%;
   position: relative;
@@ -244,26 +293,42 @@ header {
 .Suzuki {
   background-image: linear-gradient(to right, #920b3f, #ffffff00);
 }
+.BMW {
+  background-image: linear-gradient(to right, #1e3ecf, #ffffff00);
+}
+.Hyundai {
+  background-image: linear-gradient(to right, #10e260, #ffffff00);
+}
 .Renault::before {
   content: "";
   background-image: url("https://car-logos.b-cdn.net/wp-content/uploads/2023/03/renault-logo-2015-2021-scaled.webp");
 }
-.Tesla::before {
+.auto > .Tesla::before {
   content: "";
   background-image: url("https://static.vecteezy.com/system/resources/previews/020/975/670/original/tesla-logo-tesla-icon-transparent-free-png.png");
 }
-.Chevrolet::before {
+.auto > .Chevrolet::before {
   content: "";
   background-image: url("https://wallpapercave.com/wp/wp2657678.png");
 }
-.Suzuki::before {
+.auto > .Suzuki::before {
   content: "";
   background-image: url("https://download.logo.wine/logo/Suzuki/Suzuki-Logo.wine.png");
 }
-.Renault::before,
-.Tesla::before,
-.Chevrolet::before,
-.Suzuki::before {
+.auto > .BMW::before {
+  content: "";
+  background-image: url("https://qph.cf2.quoracdn.net/main-qimg-fff0a0e4daba21899b66da8178055645");
+}
+.auto > .Hyundai::before {
+  content: "";
+  background-image: url("https://cdn.freebiesupply.com/logos/large/2x/hyundai-logo-png-transparent.png");
+}
+.auto > .Renault::before,
+.auto > .Tesla::before,
+.auto > .Chevrolet::before,
+.auto > .Suzuki::before,
+.auto > .BMW::before,
+.auto > .Hyundai::before {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -271,4 +336,299 @@ header {
   height: 100%;
   position: absolute;
   border-radius: 10px;
+}
+
+/* --------------------------------------NUEVO AUTO----------------------------------- */
+/* .btn-editar{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 2rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+} */
+.detalle-container {
+  width: 1440px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+.titulo {
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+.subtitulo {
+  text-align: center;
+}
+.detalles-principales,
+.imagenes,
+.detalles-adicionales {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.detalles-principales {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.imagenes {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+.detalles-adicionales {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  width: 100%;
+}
+.nuevoAuto-container {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  gap: 3rem;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.input {
+  padding-inline: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0px 4px 12px #16223333;
+  box-shadow: 0 8px 12px #00000028;
+  transition: 0.5s;
+  padding-block: 0.4rem;
+}
+.input-container-dos {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+.container-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+.btn-agregar {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.btn-agregar::before {
+  content: "Agregar Auto";
+}
+
+/* -------------------------------------------------DETALLE AUTO ------------------------------------------------ */
+.galeriaFotos-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.galeriaFotos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.foto {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
+}
+.principal-container {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.principal-left > .Tesla {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/640px-Tesla_T_symbol.svg.png);
+  height: 8rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 6rem;
+  height: 6rem;
+}
+.principal-left > .Chevrolet {
+  background-image: url(https://1000logos.net/wp-content/uploads/2019/12/Chevrolet-Logo-2010.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 6rem;
+  height: 6rem;
+}
+.principal-left > .Hyundai {
+  background-image: url(https://di-uploads-pod5.dealerinspire.com/triplejsaipan/uploads/2018/05/HyundaiLogoStacked_4cblk-1024x659.gif);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 6rem;
+  height: 6rem;
+}
+
+.principal-left {
+  display: flex;
+  gap: 2rem;
+  width: 65%;
+  align-items: center;
+}
+.tituloDetalle {
+  font-size: 3rem;
+}
+.nombre-abajo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.icon {
+  width: 2rem;
+}
+.items-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 16px;
+}
+.iconCalendar {
+  width: 1.5rem;
+}
+.precio {
+  font-size: 3rem;
+}
+.precio-container {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+}
+
+.title-masDetalles {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 2rem;
+}
+.caja-container {
+  width: 20rem;
+  height: 15rem;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0px 4px 12px #16223333;
+  box-shadow: 0 8px 12px #00000028;
+}
+.titulo-caja {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 2rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.texto-caja {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+}
+.izq-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.masDetalles-container{
+  display: flex;
+  gap: 3rem;
+}
+.botones-detalle{
+  display: flex;
+  gap: 3rem;
+  width: 50%;
+  padding-block: 1rem;
+}
+.btn-detalle{
+  width: 100%;
+  padding-block: 1rem;
+}
+.masInfo{
+  width: 100%;
+}
+.atras{
+  width: 2.5rem;
+  padding-block: 2rem;
+  transition: 500ms;
+}
+.atras:hover{
+  scale: 1.1;
+}
+
+/* -----------------------------------LOGIN---------------------------------- */
+.title-login{
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 400;
+  padding: 1rem;
+}
+.login-container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-caja{
+  width: 35%;
+  height: 50vh;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  box-shadow: 0px 4px 12px #16223359;
+  box-shadow: 0 8px 32px #0000006c;
+  border: 1px solid #b4b4b4;
+}
+.input-login-container{
+  padding: 1rem;
+  width: 75%;
+  margin: 0 auto;
+}
+.btn-login{
+  width: 50%;
+  margin: 0 auto;
+  padding-block: 1rem;
+  font-size: 16px;
+}
+.logo-login{
+  width: 20rem;
+}
+.form-register{
+  padding: 10rem;
+}
+.btn-register{
+  padding: 1rem;
+  width: 50%;
+  margin: 0 auto;
+}
+.btn-login-register{
+  padding: 1rem;
+  margin: 2rem auto;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid #000000;
 }

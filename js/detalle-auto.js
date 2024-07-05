@@ -2,6 +2,22 @@ import Auto from "../Models/Auto.js";
 import { RequestsAPI } from "../RequestApi.js";
 import { imprimir, validarSesion } from "../utils/functions.js";
 
+function usuarioHeader() {
+  const userItem = document.querySelector(".user");
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user, "user");
+  userItem.innerHTML = `Hola bienvenido, ${user.nombre}`;
+
+  const btnLogout = document.querySelector(".logout");
+
+  btnLogout.addEventListener("click", () => {
+    sessionStorage.removeItem("session");
+    window.location.replace("login.html");
+  });
+}
+
+usuarioHeader();
+
 validarSesion();
 
 const params = new URLSearchParams(window.location.search);

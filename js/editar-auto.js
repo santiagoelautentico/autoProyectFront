@@ -7,6 +7,22 @@ import { RequestsAPI } from "../RequestApi.js";
 
 validarSesion();
 
+function usuarioHeader() {
+  const userItem = document.querySelector(".user");
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user, "user");
+  userItem.innerHTML = `Hola bienvenido, ${user.nombre}`;
+
+  const btnLogout = document.querySelector(".logout");
+
+  btnLogout.addEventListener("click", () => {
+    sessionStorage.removeItem("session");
+    window.location.replace("login.html");
+  });
+}
+
+usuarioHeader();
+
 const params = new URLSearchParams(window.location.search);
 const idAuto = params.get("id");
 

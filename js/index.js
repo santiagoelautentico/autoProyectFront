@@ -1,20 +1,28 @@
 import Auto from "../Models/Auto.js";
 import { RequestsAPI } from "../RequestApi.js";
-import { imprimir, obtenerValorInput, validarSesion } from "../utils/functions.js";
+import {
+  imprimir,
+  obtenerValorInput,
+  validarSesion,
+} from "../utils/functions.js";
 
 validarSesion();
 
-const userItem = document.querySelector(".user");
-const user = JSON.parse(sessionStorage.getItem("user"));
-console.log(user, "user");
-userItem.innerHTML = `Hola bienvenido, ${user.nombre}`;
+function usuarioHeader() {
+  const userItem = document.querySelector(".user");
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user, "user");
+  userItem.innerHTML = `Hola bienvenido, ${user.nombre}`;
 
-const btnLogout = document.querySelector(".logout");
+  const btnLogout = document.querySelector(".logout");
 
-btnLogout.addEventListener("click", () => {
-  sessionStorage.removeItem("session");
-  window.location.replace("login.html");
-})
+  btnLogout.addEventListener("click", () => {
+    sessionStorage.removeItem("session");
+    window.location.replace("login.html");
+  });
+}
+
+usuarioHeader();
 
 function mostrarListaDeAutos(data) {
   imprimir("lista-error", "");
